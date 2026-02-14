@@ -4,7 +4,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { bookingsApi } from '@/features/bookings/api/bookingsApi'
 import { usePermissions } from '@/features/permissions/hooks/usePermissions'
 import { useParams } from 'next/navigation'
-import { Calendar, Mail, FileText, Clock, CheckCircle, XCircle, Check } from 'lucide-react'
+import { Calendar, Mail, FileText, Clock, CheckCircle, XCircle, Check, Phone } from 'lucide-react'
 import { BackButton } from '@/shared/components/BackButton'
 
 export default function BookingDetailPage() {
