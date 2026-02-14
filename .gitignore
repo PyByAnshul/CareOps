@@ -1,0 +1,71 @@
+# === OS / Editor ===
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# === Backend (Python) ===
+# Env and secrets
+.env
+.env.*
+!.env.example
+
+# Virtual envs
+.venv/
+venv/
+env/
+ENV/
+
+# Bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+.eggs/
+
+# Database
+*.db
+*.sqlite3
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# === Frontend (Node / Next.js) ===
+node_modules/
+.next/
+out/
+.nuxt/
+.output/
+*.tsbuildinfo
+
+# Env (keep example if you add one)
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# === Logs / temp ===
+*.log
+logs/
+tmp/
+temp/
+.cache/
+
+# === IDE (optional; uncomment if you don’t want to track) ===
+# .vscode/
+# .idea/
