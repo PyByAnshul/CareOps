@@ -47,13 +47,34 @@ def bootstrap() -> None:
     Base.metadata.create_all(bind=engine)
     logger.info("Database tables created")
     
-    # Seed permissions
+    # Seed permissions and default admin
     from app.addons.permissions.service import PermissionService
+    from app.addons.users.service import UserService
+    from app.addons.users.schemas import UserRegister
+    from app.addons.users.models import User
+    
     db = SessionLocal()
     try:
+        # Seed permissions
         service = PermissionService(db)
         service.seed_permissions()
         logger.info("Permissions seeded")
+        
+        # Create default admin user
+        admin_email = "admin@careops.com"
+        existing_admin = db.query(User).filter(User.email == admin_email).first()
+        if not existing_admin:
+            user_service = UserService(db)
+            admin_data = UserRegister(
+                email=admin_email,
+                password="admin@123",
+                workspace_id=1,
+                role="owner"
+            )
+            user_service.create_user(admin_data)
+            logger.info("Default admin user created successfully")
+        else:
+            logger.info("Default admin user already exists")
     finally:
         db.close()
     
